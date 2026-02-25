@@ -1,0 +1,11 @@
+.main-logo{
+    border-radius: 50%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+}
+
+.logo-div{
+  display: flex;
+  justify-content: center;
+}
