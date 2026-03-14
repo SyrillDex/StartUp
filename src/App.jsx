@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import { Routes, Route } from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";
+import { createTheme, ThemeProvider } from "@mui/material";
 
 // background-color: rgb(110, 65, 42); -- main
 
@@ -27,17 +28,44 @@ import Home from "./pages/Home";
 // Poppins -- sans
 // Montserrat -- sans
 
+// Nunito -- sans
+// Quicksand -- sans
+// Fredoka -- sans
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#6F4E37",
+    },
+    secondary: {
+      main: "#D7CCC8",
+    },
+    background: {
+      main: "#F5F5F5",
+    },
+    text: {
+      primary: "#2D2D2D",
+      secondary: "#4B3832",
+    },
+  },
+  shape: {
+    borderRadius: 12,
+  },
+});
+
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <Routes>
-        <Route element={<Header />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Route>
-      </Routes>
+      <ThemeProvider theme={theme}>
+        <Routes>
+          <Route element={<Header />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+          </Route>
+        </Routes>
+      </ThemeProvider>
     </>
   );
 }
